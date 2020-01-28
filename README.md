@@ -5,9 +5,9 @@ Draw a 5-card hand from a deck of cards and classify it as a poker hand
 
 ### Instructions:
 
-1. Download this repository
+1. Download this repository or the latest release
 2. Open a Terminal (Mac) or Command Prompt (Windows) window
-3. Navigate to the downloaded PokerHands folder (cd /path/to/PokerHands)
+3. Navigate to the downloaded unzipped PokerHands folder (cd /path/to/PokerHands)
 4. Run tests by entering the Python 3 interpreter name follwed by tests.py (ie. python3 tests.py)
 5. Start the program by entering the Python 3 interpreter name follwed by main.py (ie. python3 main.py)
    - This will create a new deck and perform an initial shuffle.
