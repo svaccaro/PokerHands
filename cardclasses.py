@@ -34,8 +34,8 @@ class Deck:
     def draw(self, count):
         drawURL = 'https://deckofcardsapi.com/api/deck/{}/draw/?count={}'.format(self.deckId, count)
         resp = APIComm.get(drawURL)
-        self.countRemaining = resp.json()['remaining']
-        hand = Hand(resp.json()['cards'])
+        self.countRemaining = resp['remaining']
+        hand = Hand(resp['cards'])
         return hand
 
 class Hand:
