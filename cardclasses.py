@@ -7,26 +7,24 @@ from collections import Counter
 # to do:
 
 class HandTypes(enum.Enum):
-    RoyalFlush = 1
-    StraightFlush = 2
-    FourOfAKind = 3
-    FullHouse = 4
+    Royal_Flush = 1
+    Straight_Flush = 2
+    Four_Of_A_Kind = 3
+    Full_House = 4
     Flush = 5
     Straight = 6
-    ThreeOfAKind = 7
-    TwoPair = 8
+    Three_Of_A_Kind = 7
+    Two_Pair = 8
     Pair = 9
-    HighCard = 10
+    High_Card = 10
     Undefined = 11
 
 class Deck:
     # new
     def __init__(self):
-        #resp = requests.get("https://deckofcardsapi.com/api/deck/new/")
         resp = APIComm.get("https://deckofcardsapi.com/api/deck/new/")
         self.deckId = resp['deck_id']
         self.countRemaining = resp['remaining']
-    # shuffle returns all cards and shuffles
     def shuffle(self):
         shuffleURL = 'https://deckofcardsapi.com/api/deck/{}/shuffle/'.format(self.deckId)
         resp = APIComm.get(shuffleURL)
@@ -60,26 +58,26 @@ class Hand:
         # classification order is highest -> lowest, return when match is found
         if (isStraight and totalSuitCount==1):
             if topCard == 14:
-                return HandTypes.RoyalFlush
+                return HandTypes.Royal_Flush
             else:
-                return HandTypes.StraightFlush
+                return HandTypes.Straight_Flush
         elif maxValueCount == 4:
-            return HandTypes.FourOfAKind
+            return HandTypes.Four_Of_A_Kind
         elif (maxValueCount == 3 and len(self.valueCounter) == 2):
-            return HandTypes.FullHouse
+            return HandTypes.Full_House
         elif totalSuitCount == 1:
             return HandTypes.Flush
         elif isStraight:
             return HandTypes.Straight
         elif maxValueCount == 3:
-            return HandTypes.ThreeOfAKind
+            return HandTypes.Three_Of_A_Kind
         elif maxValueCount == 2:
             if len(self.valueCounter)==3:
-                return HandTypes.TwoPair
+                return HandTypes.Two_Pair
             else:
                 return HandTypes.Pair
         else:
-            return HandTypes.HighCard
+            return HandTypes.High_Card
 
 class Card:
     numberLookup = {"0": 10, "JACK": 11, "J": 11, "QUEEN": 12, "Q": 12, "KING": 13, "K": 13, "ACE": 14, "A": 14}
