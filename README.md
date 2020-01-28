@@ -11,7 +11,7 @@ Draw a 5-card hand from a deck of cards and classify it as a poker hand
 4. Run tests by entering the Python 3 interpreter name followed by tests.py (ie. python3 tests.py)
 5. Start the program by entering the Python 3 interpreter name followed by main.py (ie. python3 main.py)
    - This will create a new deck and perform an initial shuffle.
-   - The available options for operation will be displayed, and are as follws:
+   - The available options for operation will be displayed, and are as follows:
      - s or shuffle returns all cards and shuffles the deck
      - d or draw draws and displays a 5 card hand
      - b or best displays the highest ranking poker hand made by the current drawn hand
